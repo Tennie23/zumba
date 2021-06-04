@@ -81,6 +81,10 @@ module.exports = {
     backdropSaturate: (theme) => theme('saturate'),
     backdropSepia: (theme) => theme('sepia'),
     backgroundColor: (theme) => theme('colors'),
+    backgroundColor: theme => ({
+      ...theme('colors'),
+      'hero-bg': '#C4C64F',
+    }) ,
     backgroundImage: {
       none: 'none',
       'gradient-to-t': 'linear-gradient(to top, var(--tw-gradient-stops))',
@@ -261,6 +265,7 @@ module.exports = {
         '"Courier New"',
         'monospace',
       ],
+      hero:['Aclonica', 'sans-serif'],
     },
     fontSize: {
       xs: ['0.75rem', { lineHeight: '1rem' }],
@@ -514,6 +519,7 @@ module.exports = {
     maxWidth: (theme, { breakpoints }) => ({
       none: 'none',
       0: '0rem',
+      xxs: '10rem',
       xs: '20rem',
       sm: '24rem',
       md: '28rem',
@@ -959,5 +965,5 @@ module.exports = {
     wordBreak: ['responsive'],
     zIndex: ['responsive', 'focus-within', 'focus'],
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 }
